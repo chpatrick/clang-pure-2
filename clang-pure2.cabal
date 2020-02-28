@@ -1,0 +1,37 @@
+cabal-version:       >=1.10
+name:                clang-pure
+version:             0.1.0.0
+-- synopsis:
+-- description:
+-- bug-reports:
+-- license:
+license-file:        LICENSE
+author:              Patrick Chilton
+maintainer:          chpatrick@gmail.com
+-- copyright:
+-- category:
+build-type:          Simple
+extra-source-files:  CHANGELOG.md
+
+library clang-pure2
+  exposed-modules:     Language.C.Clang.Internal.FFI,
+                       Language.C.Clang.Internal.Inline,
+                       Language.C.Clang.Internal.Types,
+                       Language.C.Clang.Internal.Hsc
+
+  build-depends:       base,
+                       containers,
+                       inline-c,
+                       inline-c-cpp,
+                       vector,
+                       template-haskell,
+                       bytestring,
+                       mtl,
+                       time,
+                       lens
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+  include-dirs:        cbits/
+  cc-options:          -std=c++11 -Wall
+  extra-libraries:     stdc++ clang
